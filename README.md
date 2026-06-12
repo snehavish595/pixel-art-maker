@@ -275,18 +275,6 @@ Want to customize this project, add an eraser tool, or add a download button? Fo
 
 ---
 
-## 🐛 Bug Reports
-
-Found a bug? Please help us improve!
-
-1. Go to the **Issues** tab
-2. Click **New Issue**
-3. Describe the bug clearly with steps to reproduce
-4. Include screenshots if possible
-5. Tell us what you expected vs. what happened
-
----
-
 ## 🌟 Show Your Support
 
 If you like this project:
@@ -297,51 +285,4 @@ If you like this project:
 
 ---
 
-## 📝 License
 
-This project is open source and available under the **MIT License**.
-
-**You are free to:**
-- ✅ Use it for personal projects
-- ✅ Modify and customize it
-- ✅ Distribute it
-- ✅ Use it commercially
-
-**Just remember to credit the original author!**
-
----
-
-## 👨‍💻 Author
-
-Created with ❤️ by **[snehavish595](https://github.com/snehavish595)**
-
----
-
-## 🙏 Acknowledgments
-
-- Inspired by classic pixel art and modern web development
-- Built with vanilla JavaScript - no frameworks!
-- Special thanks to the open-source community
-
----
-
-## 📞 Questions or Suggestions?
-
-Feel free to:
-- 📧 Reach out via GitHub Issues
-- 💬 Start a discussion in the repository
-- 🌐 Check out more projects on the author's profile
-
----
-
-## 🎉 Have Fun Creating!
-
-Now go unleash your creativity! 🎨✨
-
-👉 **[Start Drawing Now](https://snehavish595.github.io/pixel-art-maker/)**
-
----
-
-**Last Updated:** June 12, 2026  
-**Version:** 1.0.0  
-**Status:** ✅ Active & Maintained
