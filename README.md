@@ -36,16 +36,6 @@ pixel-art-maker/
     └── screenshot.png  # Preview image for GitHub
 ```
 
-### File Details
-
-| File/Folder | Description |
-|-------------|-------------|
-| **index.html** | Contains the semantic HTML5 structure with form controls and canvas div |
-| **style.css** | Complete styling with CSS variables, dark theme, Flexbox, and CSS Grid |
-| **script.js** | JavaScript logic handling grid generation, event listeners, and drawing state |
-| **README.md** | Full documentation with setup guide and usage instructions |
-| **images/** | Folder containing preview screenshots for documentation |
-
 ---
 
 ## ✨ Features
@@ -75,24 +65,9 @@ Pure vanilla code = No frameworks, no dependencies, no bloat. Ultra-fast perform
 
 ## 🛠️ Tech Stack
 
-### HTML5
-- Semantic HTML structure
-- Form controls for user input
-- Accessible markup
-
-### CSS3
-- Custom CSS properties (variables) for theming
-- Flexbox for layout
-- Dynamic CSS Grid for pixel canvas
-- Smooth transitions and hover effects
-- Dark mode optimized colors
-
-### JavaScript (ES6+)
-- Advanced Event Listeners (mousedown, mouseover, mouseup)
-- Dynamic DOM injection for grid generation
-- State tracking for drawing mode
-- Real-time grid resizing
-
+- HTML5
+- CSS3
+- JavaScript (ES6+)
 ---
 
 ## 🚀 Local Setup Guide
@@ -140,78 +115,19 @@ python -m SimpleHTTPServer 8000
 
 Then visit: `http://localhost:8000`
 
-#### **Method D (Using Node.js)**
-If you have Node.js installed:
-
-```bash
-npx http-server
-```
-
 ---
 
 ## 📖 How to Use
 
 ### Getting Started
 
-1. **Pick Your Color** 🎨
-   - Click on the color picker input
-   - Select any color you like
-   - Default is a nice blue (#4A90E2)
+1. Pick Your Color 🎨
 
-2. **Adjust Grid Size** 📐
-   - Move the grid size slider left or right
-   - Range: 8x8 to 32x32 pixels
-   - Smaller grid = bigger pixels (easier drawing)
-   - Larger grid = more detail (advanced users)
+2. Adjust Grid Size 📐
 
-3. **Start Drawing** 🖌️
-   - Click on any pixel to color it
-   - Click and drag to draw continuously
-   - Your selected color will fill the pixels
+3. Start Drawing 🖌️
 
-4. **Clear Canvas** 🔄
-   - Click the "Clear Canvas" button
-   - All pixels reset to white
-   - Ready for your next masterpiece!
-
-### Pro Tips 💡
-
-- **Beginners**: Start with an 8x8 or 12x12 grid
-- **Detailed work**: Use 24x24 or 32x32 grids
-- **Color inspiration**: Check out color palette websites like Coolors.co
-- **Save your work**: Take a screenshot before clearing!
-- **Undo trick**: Use browser developer tools (F12) to inspect or manually undo
-
----
-
-## 💻 Code Structure Explanation
-
-### HTML (index.html)
-```html
-<!-- Color picker control -->
-<input type="color" id="colorPicker" value="#4A90E2">
-
-<!-- Grid size slider -->
-<input type="range" id="gridSize" min="8" max="32" value="16">
-
-<!-- Canvas where pixels are generated -->
-<div id="canvas" class="grid-canvas"></div>
-
-<!-- Clear button -->
-<button id="clearBtn">Clear Canvas</button>
-```
-
-### CSS (style.css)
-- Uses **CSS Grid** to create the pixel canvas dynamically
-- **CSS Variables** for easy theme customization
-- **Dark theme** colors for modern look
-- **Flexbox** for responsive control layout
-
-### JavaScript (script.js)
-- `createGrid(size)`: Generates the pixel grid dynamically
-- Event listeners for mouse interactions
-- State tracking with `isDrawing` flag
-- Color updates through input value reading
+4. Clear Canvas 🔄
 
 ---
 
