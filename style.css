@@ -3,6 +3,10 @@
     --card-color: #1e293b;
     --text-color: #f8fafc;
     --accent-color: #38bdf8;
+    --success-color: #10b981;
+    --success-hover: #059669;
+    --danger-color: #ef4444;
+    --danger-hover: #dc2626;
 }
 
 body {
@@ -33,8 +37,7 @@ h1 {
 
 .controls {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    flex-direction: column;
     align-items: center;
     gap: 15px;
     margin-bottom: 25px;
@@ -48,6 +51,14 @@ h1 {
     flex-direction: column;
     align-items: center;
     gap: 5px;
+    width: 100%;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    width: 100%;
 }
 
 input[type="color"] {
@@ -59,19 +70,38 @@ input[type="color"] {
     background: none;
 }
 
+input[type="range"] {
+    width: 80%;
+}
+
 button {
-    background-color: #ef4444;
     color: white;
     border: none;
     padding: 10px 15px;
     border-radius: 6px;
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: background 0.2s, transform 0.1s;
 }
 
-button:hover {
-    background-color: #dc2626;
+button:active {
+    transform: scale(0.98);
+}
+
+.danger-btn {
+    background-color: var(--danger-color);
+}
+
+.danger-btn:hover {
+    background-color: var(--danger-hover);
+}
+
+.success-btn {
+    background-color: var(--success-color);
+}
+
+.success-btn:hover {
+    background-color: var(--success-hover);
 }
 
 /* The Grid Canvas */
