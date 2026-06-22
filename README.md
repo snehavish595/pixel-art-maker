@@ -36,16 +36,6 @@ pixel-art-maker/
     └── screenshot.png  # Preview image for GitHub
 ```
 
-### File Details
-
-| File/Folder | Description |
-|-------------|-------------|
-| **index.html** | Contains the semantic HTML5 structure with form controls and canvas div |
-| **style.css** | Complete styling with CSS variables, dark theme, Flexbox, and CSS Grid |
-| **script.js** | JavaScript logic handling grid generation, event listeners, and drawing state |
-| **README.md** | Full documentation with setup guide and usage instructions |
-| **images/** | Folder containing preview screenshots for documentation |
-
 ---
 
 ## ✨ Features
@@ -75,24 +65,9 @@ Pure vanilla code = No frameworks, no dependencies, no bloat. Ultra-fast perform
 
 ## 🛠️ Tech Stack
 
-### HTML5
-- Semantic HTML structure
-- Form controls for user input
-- Accessible markup
-
-### CSS3
-- Custom CSS properties (variables) for theming
-- Flexbox for layout
-- Dynamic CSS Grid for pixel canvas
-- Smooth transitions and hover effects
-- Dark mode optimized colors
-
-### JavaScript (ES6+)
-- Advanced Event Listeners (mousedown, mouseover, mouseup)
-- Dynamic DOM injection for grid generation
-- State tracking for drawing mode
-- Real-time grid resizing
-
+- HTML5
+- CSS3
+- JavaScript (ES6+)
 ---
 
 ## 🚀 Local Setup Guide
@@ -140,78 +115,19 @@ python -m SimpleHTTPServer 8000
 
 Then visit: `http://localhost:8000`
 
-#### **Method D (Using Node.js)**
-If you have Node.js installed:
-
-```bash
-npx http-server
-```
-
 ---
 
 ## 📖 How to Use
 
 ### Getting Started
 
-1. **Pick Your Color** 🎨
-   - Click on the color picker input
-   - Select any color you like
-   - Default is a nice blue (#4A90E2)
+1. Pick Your Color 🎨
 
-2. **Adjust Grid Size** 📐
-   - Move the grid size slider left or right
-   - Range: 8x8 to 32x32 pixels
-   - Smaller grid = bigger pixels (easier drawing)
-   - Larger grid = more detail (advanced users)
+2. Adjust Grid Size 📐
 
-3. **Start Drawing** 🖌️
-   - Click on any pixel to color it
-   - Click and drag to draw continuously
-   - Your selected color will fill the pixels
+3. Start Drawing 🖌️
 
-4. **Clear Canvas** 🔄
-   - Click the "Clear Canvas" button
-   - All pixels reset to white
-   - Ready for your next masterpiece!
-
-### Pro Tips 💡
-
-- **Beginners**: Start with an 8x8 or 12x12 grid
-- **Detailed work**: Use 24x24 or 32x32 grids
-- **Color inspiration**: Check out color palette websites like Coolors.co
-- **Save your work**: Take a screenshot before clearing!
-- **Undo trick**: Use browser developer tools (F12) to inspect or manually undo
-
----
-
-## 💻 Code Structure Explanation
-
-### HTML (index.html)
-```html
-<!-- Color picker control -->
-<input type="color" id="colorPicker" value="#4A90E2">
-
-<!-- Grid size slider -->
-<input type="range" id="gridSize" min="8" max="32" value="16">
-
-<!-- Canvas where pixels are generated -->
-<div id="canvas" class="grid-canvas"></div>
-
-<!-- Clear button -->
-<button id="clearBtn">Clear Canvas</button>
-```
-
-### CSS (style.css)
-- Uses **CSS Grid** to create the pixel canvas dynamically
-- **CSS Variables** for easy theme customization
-- **Dark theme** colors for modern look
-- **Flexbox** for responsive control layout
-
-### JavaScript (script.js)
-- `createGrid(size)`: Generates the pixel grid dynamically
-- Event listeners for mouse interactions
-- State tracking with `isDrawing` flag
-- Color updates through input value reading
+4. Clear Canvas 🔄
 
 ---
 
@@ -275,18 +191,6 @@ Want to customize this project, add an eraser tool, or add a download button? Fo
 
 ---
 
-## 🐛 Bug Reports
-
-Found a bug? Please help us improve!
-
-1. Go to the **Issues** tab
-2. Click **New Issue**
-3. Describe the bug clearly with steps to reproduce
-4. Include screenshots if possible
-5. Tell us what you expected vs. what happened
-
----
-
 ## 🌟 Show Your Support
 
 If you like this project:
@@ -297,51 +201,4 @@ If you like this project:
 
 ---
 
-## 📝 License
 
-This project is open source and available under the **MIT License**.
-
-**You are free to:**
-- ✅ Use it for personal projects
-- ✅ Modify and customize it
-- ✅ Distribute it
-- ✅ Use it commercially
-
-**Just remember to credit the original author!**
-
----
-
-## 👨‍💻 Author
-
-Created with ❤️ by **[snehavish595](https://github.com/snehavish595)**
-
----
-
-## 🙏 Acknowledgments
-
-- Inspired by classic pixel art and modern web development
-- Built with vanilla JavaScript - no frameworks!
-- Special thanks to the open-source community
-
----
-
-## 📞 Questions or Suggestions?
-
-Feel free to:
-- 📧 Reach out via GitHub Issues
-- 💬 Start a discussion in the repository
-- 🌐 Check out more projects on the author's profile
-
----
-
-## 🎉 Have Fun Creating!
-
-Now go unleash your creativity! 🎨✨
-
-👉 **[Start Drawing Now](https://snehavish595.github.io/pixel-art-maker/)**
-
----
-
-**Last Updated:** June 12, 2026  
-**Version:** 1.0.0  
-**Status:** ✅ Active & Maintained
