@@ -5,6 +5,10 @@ const sizeValueDisplay = document.getElementById('sizeValue');
 const clearBtn = document.getElementById('clearBtn');
 const downloadBtn = document.getElementById('downloadBtn');
 
+// NEW: Pixel Counter Elements
+const coloredCountDisplay = document.getElementById('coloredCount');
+const totalCountDisplay = document.getElementById('totalCount');
+
 let isDrawing = false;
 
 // Initialize default grid size
@@ -15,30 +19,51 @@ function createGrid(size) {
     canvas.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
     canvas.style.gridTemplateRows = `repeat(${size}, 1fr)`;
 
+    // Set maximum grid capacity context text
+    totalCountDisplay.textContent = size * size;
+
     for (let i = 0; i < size * size; i++) {
         const pixel = document.createElement('div');
         pixel.classList.add('pixel');
-        // Set explicit background color attribute so our exporter can read it safely
         pixel.style.backgroundColor = '#ffffff';
 
         pixel.addEventListener('mousedown', (e) => {
             isDrawing = true;
             pixel.style.backgroundColor = colorPicker.value;
+            updatePixelStats(); // Recalculate stats on action
         });
 
         pixel.addEventListener('mouseover', () => {
             if (isDrawing) {
                 pixel.style.backgroundColor = colorPicker.value;
+                updatePixelStats(); // Recalculate stats on drag
             }
         });
 
         canvas.appendChild(pixel);
     }
+    
+    updatePixelStats(); // Reset counter display back to 0 on new grid generation
 }
 
 window.addEventListener('mouseup', () => {
     isDrawing = false;
 });
+
+// NEW FUNCTIONALITY: Calculate painted boxes versus blank pixels
+function updatePixelStats() {
+    const pixels = document.querySelectorAll('.pixel');
+    let coloredCount = 0;
+
+    pixels.forEach(pixel => {
+        // If a pixel background is anything other than standard white, count it
+        if (pixel.style.backgroundColor !== 'rgb(255, 255, 255)' && pixel.style.backgroundColor !== '#ffffff') {
+            coloredCount++;
+        }
+    });
+
+    coloredCountDisplay.textContent = coloredCount;
+}
 
 gridSizeSlider.addEventListener('input', (e) => {
     const size = e.target.value;
@@ -49,25 +74,22 @@ gridSizeSlider.addEventListener('input', (e) => {
 clearBtn.addEventListener('click', () => {
     const pixels = document.querySelectorAll('.pixel');
     pixels.forEach(pixel => pixel.style.backgroundColor = '#ffffff');
+    updatePixelStats(); // Clear text count back down to 0
 });
 
-// NEW FUNCTIONALITY: Download Art Logic
 downloadBtn.addEventListener('click', () => {
     const size = parseInt(gridSizeSlider.value);
     const pixels = document.querySelectorAll('.pixel');
     
-    // Create an internal, invisible virtual HTML5 canvas for processing
     const virtualCanvas = document.createElement('canvas');
     const ctx = virtualCanvas.getContext('2d');
     
-    // Scale up the download file size so it looks sharp (e.g. 512x512 pixels)
     const exportSize = 512;
     virtualCanvas.width = exportSize;
     virtualCanvas.height = exportSize;
     
     const pixelScale = exportSize / size;
 
-    // Read colors from our webpage grid and paint them onto our image file canvas
     pixels.forEach((pixel, index) => {
         const x = (index % size) * pixelScale;
         const y = Math.floor(index / size) * pixelScale;
@@ -76,7 +98,6 @@ downloadBtn.addEventListener('click', () => {
         ctx.fillRect(x, y, pixelScale, pixelScale);
     });
 
-    // Generate a temporary hidden link and click it automatically to prompt browser download
     const link = document.createElement('a');
     link.download = 'pixel-art.png';
     link.href = virtualCanvas.toDataURL('image/png');
