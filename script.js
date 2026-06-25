@@ -4,12 +4,15 @@ const gridSizeSlider = document.getElementById('gridSize');
 const sizeValueDisplay = document.getElementById('sizeValue');
 const clearBtn = document.getElementById('clearBtn');
 const downloadBtn = document.getElementById('downloadBtn');
-
-// NEW: Pixel Counter Elements
 const coloredCountDisplay = document.getElementById('coloredCount');
 const totalCountDisplay = document.getElementById('totalCount');
 
+// NEW: Mode Elements
+const drawModeBtn = document.getElementById('drawModeBtn');
+const eraseModeBtn = document.getElementById('eraseModeBtn');
+
 let isDrawing = false;
+let currentMode = 'draw'; // Tracks active tool status: 'draw' or 'erase'
 
 // Initialize default grid size
 createGrid(16);
@@ -18,8 +21,6 @@ function createGrid(size) {
     canvas.innerHTML = ''; 
     canvas.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
     canvas.style.gridTemplateRows = `repeat(${size}, 1fr)`;
-
-    // Set maximum grid capacity context text
     totalCountDisplay.textContent = size * size;
 
     for (let i = 0; i < size * size; i++) {
@@ -27,36 +28,55 @@ function createGrid(size) {
         pixel.classList.add('pixel');
         pixel.style.backgroundColor = '#ffffff';
 
+        // Helper logic to execute drawing actions based on active tool mode
+        const paintPixel = () => {
+            if (currentMode === 'draw') {
+                pixel.style.backgroundColor = colorPicker.value;
+            } else {
+                pixel.style.backgroundColor = '#ffffff'; // Eraser reverts to white
+            }
+            updatePixelStats();
+        };
+
         pixel.addEventListener('mousedown', (e) => {
             isDrawing = true;
-            pixel.style.backgroundColor = colorPicker.value;
-            updatePixelStats(); // Recalculate stats on action
+            paintPixel();
         });
 
         pixel.addEventListener('mouseover', () => {
             if (isDrawing) {
-                pixel.style.backgroundColor = colorPicker.value;
-                updatePixelStats(); // Recalculate stats on drag
+                paintPixel();
             }
         });
 
         canvas.appendChild(pixel);
     }
     
-    updatePixelStats(); // Reset counter display back to 0 on new grid generation
+    updatePixelStats();
 }
 
 window.addEventListener('mouseup', () => {
     isDrawing = false;
 });
 
-// NEW FUNCTIONALITY: Calculate painted boxes versus blank pixels
+// NEW: Tool toggle event handlers
+drawModeBtn.addEventListener('click', () => {
+    currentMode = 'draw';
+    drawModeBtn.classList.add('active');
+    eraseModeBtn.classList.remove('active');
+});
+
+eraseModeBtn.addEventListener('click', () => {
+    currentMode = 'erase';
+    eraseModeBtn.classList.add('active');
+    drawModeBtn.classList.remove('active');
+});
+
 function updatePixelStats() {
     const pixels = document.querySelectorAll('.pixel');
     let coloredCount = 0;
 
     pixels.forEach(pixel => {
-        // If a pixel background is anything other than standard white, count it
         if (pixel.style.backgroundColor !== 'rgb(255, 255, 255)' && pixel.style.backgroundColor !== '#ffffff') {
             coloredCount++;
         }
@@ -74,7 +94,7 @@ gridSizeSlider.addEventListener('input', (e) => {
 clearBtn.addEventListener('click', () => {
     const pixels = document.querySelectorAll('.pixel');
     pixels.forEach(pixel => pixel.style.backgroundColor = '#ffffff');
-    updatePixelStats(); // Clear text count back down to 0
+    updatePixelStats();
 });
 
 downloadBtn.addEventListener('click', () => {

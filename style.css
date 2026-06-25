@@ -7,6 +7,8 @@
     --success-hover: #059669;
     --danger-color: #ef4444;
     --danger-hover: #dc2626;
+    --tool-color: #475569;
+    --tool-active: #3b82f6;
 }
 
 body {
@@ -46,7 +48,6 @@ h1 {
     border-radius: 8px;
 }
 
-/* NEW: Stats Counter design styles */
 .stats-counter {
     background-color: rgba(56, 189, 248, 0.1);
     border: 1px solid rgba(56, 189, 248, 0.2);
@@ -65,6 +66,26 @@ h1 {
     align-items: center;
     gap: 5px;
     width: 100%;
+}
+
+/* NEW: Tool Layout and Toggles */
+.tool-group {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.tool-btn {
+    background-color: var(--tool-color);
+    flex: 1;
+    max-width: 120px;
+}
+
+.tool-btn.active {
+    background-color: var(--tool-active);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
 }
 
 .button-group {
@@ -117,7 +138,6 @@ button:active {
     background-color: var(--success-hover);
 }
 
-/* The Grid Canvas */
 .grid-canvas {
     display: grid;
     margin: 0 auto;
@@ -128,7 +148,6 @@ button:active {
     height: 320px;
 }
 
-/* Individual pixels */
 .pixel {
     border: 1px solid #f1f5f9;
     box-sizing: border-box;
