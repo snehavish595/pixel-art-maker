@@ -41,23 +41,18 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
     margin-bottom: 15px;
     background: rgba(255, 255, 255, 0.05);
     padding: 15px;
     border-radius: 8px;
 }
 
-.stats-counter {
-    background-color: rgba(56, 189, 248, 0.1);
-    border: 1px solid rgba(56, 189, 248, 0.2);
-    color: var(--accent-color);
-    padding: 8px 15px;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 0.95rem;
-    margin-bottom: 20px;
-    display: inline-block;
+.control-row {
+    display: flex;
+    width: 100%;
+    gap: 15px;
+    align-items: center;
 }
 
 .control-group {
@@ -65,22 +60,60 @@ h1 {
     flex-direction: column;
     align-items: center;
     gap: 5px;
-    width: 100%;
+    flex: 1;
 }
 
-/* NEW: Tool Layout and Toggles */
+/* NEW: Preset Color Swatches Styles */
+.palette-container {
+    width: 100%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.palette-container label {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    font-weight: 600;
+    padding-left: 5px;
+}
+
+.swatches {
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 8px;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.swatch {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.15s;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.swatch:hover {
+    transform: scale(1.15);
+    border-color: #ffffff;
+}
+
 .tool-group {
     display: flex;
     gap: 10px;
     width: 100%;
     justify-content: center;
-    margin-bottom: 5px;
 }
 
 .tool-btn {
     background-color: var(--tool-color);
     flex: 1;
-    max-width: 120px;
 }
 
 .tool-btn.active {
@@ -98,14 +131,14 @@ h1 {
 input[type="color"] {
     border: none;
     border-radius: 4px;
-    width: 40px;
-    height: 40px;
+    width: 100%;
+    height: 35px;
     cursor: pointer;
     background: none;
 }
 
 input[type="range"] {
-    width: 80%;
+    width: 100%;
 }
 
 button {
@@ -136,6 +169,18 @@ button:active {
 
 .success-btn:hover {
     background-color: var(--success-hover);
+}
+
+.stats-counter {
+    background-color: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    color: var(--accent-color);
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    display: inline-block;
 }
 
 .grid-canvas {

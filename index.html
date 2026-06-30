@@ -13,14 +13,30 @@
         <p>Set your grid size, pick a color, and start drawing!</p>
 
         <div class="controls">
-            <div class="control-group">
-                <label for="colorPicker">Color:</label>
-                <input type="color" id="colorPicker" value="#4A90E2">
+            <div class="control-row">
+                <div class="control-group">
+                    <label for="colorPicker">Custom:</label>
+                    <input type="color" id="colorPicker" value="#4A90E2">
+                </div>
+                
+                <div class="control-group">
+                    <label for="gridSize">Grid Size: <span id="sizeValue">16 x 16</span></label>
+                    <input type="range" id="gridSize" min="8" max="32" value="16">
+                </div>
             </div>
-            
-            <div class="control-group">
-                <label for="gridSize">Grid Size: <span id="sizeValue">16 x 16</span></label>
-                <input type="range" id="gridSize" min="8" max="32" value="16">
+
+            <div class="palette-container">
+                <label>Quick Palettes:</label>
+                <div class="swatches">
+                    <div class="swatch" style="background-color: #ef4444;" data-color="#ef4444"></div>
+                    <div class="swatch" style="background-color: #f97316;" data-color="#f97316"></div>
+                    <div class="swatch" style="background-color: #eab308;" data-color="#eab308"></div>
+                    <div class="swatch" style="background-color: #22c55e;" data-color="#22c55e"></div>
+                    <div class="swatch" style="background-color: #3b82f6;" data-color="#3b82f6"></div>
+                    <div class="swatch" style="background-color: #a855f7;" data-color="#a855f7"></div>
+                    <div class="swatch" style="background-color: #000000;" data-color="#000000"></div>
+                    <div class="swatch" style="background-color: #94a3b8;" data-color="#94a3b8"></div>
+                </div>
             </div>
 
             <div class="tool-group">
@@ -43,3 +59,4 @@
 
     <script src="script.js"></script>
 </body>
+</html>

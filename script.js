@@ -6,13 +6,14 @@ const clearBtn = document.getElementById('clearBtn');
 const downloadBtn = document.getElementById('downloadBtn');
 const coloredCountDisplay = document.getElementById('coloredCount');
 const totalCountDisplay = document.getElementById('totalCount');
-
-// NEW: Mode Elements
 const drawModeBtn = document.getElementById('drawModeBtn');
 const eraseModeBtn = document.getElementById('eraseModeBtn');
 
+// NEW: Swatches Selection
+const swatches = document.querySelectorAll('.swatch');
+
 let isDrawing = false;
-let currentMode = 'draw'; // Tracks active tool status: 'draw' or 'erase'
+let currentMode = 'draw'; 
 
 // Initialize default grid size
 createGrid(16);
@@ -28,12 +29,11 @@ function createGrid(size) {
         pixel.classList.add('pixel');
         pixel.style.backgroundColor = '#ffffff';
 
-        // Helper logic to execute drawing actions based on active tool mode
         const paintPixel = () => {
             if (currentMode === 'draw') {
                 pixel.style.backgroundColor = colorPicker.value;
             } else {
-                pixel.style.backgroundColor = '#ffffff'; // Eraser reverts to white
+                pixel.style.backgroundColor = '#ffffff'; 
             }
             updatePixelStats();
         };
@@ -59,7 +59,19 @@ window.addEventListener('mouseup', () => {
     isDrawing = false;
 });
 
-// NEW: Tool toggle event handlers
+// NEW: Quick-Click Palette Event Handlers
+swatches.forEach(swatch => {
+    swatch.addEventListener('click', () => {
+        // Assign the color value from custom HTML attribute to our primary color element
+        colorPicker.value = swatch.getAttribute('data-color');
+        
+        // Auto-switch back into drawing mode for seamless user interaction
+        currentMode = 'draw';
+        drawModeBtn.classList.add('active');
+        eraseModeBtn.classList.remove('active');
+    });
+});
+
 drawModeBtn.addEventListener('click', () => {
     currentMode = 'draw';
     drawModeBtn.classList.add('active');
