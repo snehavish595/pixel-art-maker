@@ -8,9 +8,10 @@ const coloredCountDisplay = document.getElementById('coloredCount');
 const totalCountDisplay = document.getElementById('totalCount');
 const drawModeBtn = document.getElementById('drawModeBtn');
 const eraseModeBtn = document.getElementById('eraseModeBtn');
-
-// NEW: Swatches Selection
 const swatches = document.querySelectorAll('.swatch');
+
+// NEW: Theme Selector Element
+const themeToggleBtn = document.getElementById('themeToggleBtn');
 
 let isDrawing = false;
 let currentMode = 'draw'; 
@@ -59,13 +60,14 @@ window.addEventListener('mouseup', () => {
     isDrawing = false;
 });
 
-// NEW: Quick-Click Palette Event Handlers
+// NEW: Light/Dark Theme Switching Logic
+themeToggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('light-theme');
+});
+
 swatches.forEach(swatch => {
     swatch.addEventListener('click', () => {
-        // Assign the color value from custom HTML attribute to our primary color element
         colorPicker.value = swatch.getAttribute('data-color');
-        
-        // Auto-switch back into drawing mode for seamless user interaction
         currentMode = 'draw';
         drawModeBtn.classList.add('active');
         eraseModeBtn.classList.remove('active');
