@@ -9,14 +9,14 @@ const totalCountDisplay = document.getElementById('totalCount');
 const drawModeBtn = document.getElementById('drawModeBtn');
 const eraseModeBtn = document.getElementById('eraseModeBtn');
 const swatches = document.querySelectorAll('.swatch');
-
-// NEW: Theme Selector Element
 const themeToggleBtn = document.getElementById('themeToggleBtn');
+
+// NEW: Grid Lines Control Element
+const gridToggleBtn = document.getElementById('gridToggleBtn');
 
 let isDrawing = false;
 let currentMode = 'draw'; 
 
-// Initialize default grid size
 createGrid(16);
 
 function createGrid(size) {
@@ -60,9 +60,18 @@ window.addEventListener('mouseup', () => {
     isDrawing = false;
 });
 
-// NEW: Light/Dark Theme Switching Logic
 themeToggleBtn.addEventListener('click', () => {
     document.body.classList.toggle('light-theme');
+});
+
+// NEW: Toggle Grid visibility handler
+gridToggleBtn.addEventListener('click', () => {
+    canvas.classList.toggle('hide-borders');
+    if (canvas.classList.contains('hide-borders')) {
+        gridToggleBtn.textContent = '🌐 Show Grid Lines';
+    } else {
+        gridToggleBtn.textContent = '🌐 Hide Grid Lines';
+    }
 });
 
 swatches.forEach(swatch => {

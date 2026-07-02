@@ -1,5 +1,4 @@
 :root {
-    /* Default Dark Theme Variable States */
     --bg-color: #0f172a;
     --card-color: #1e293b;
     --text-color: #f8fafc;
@@ -12,7 +11,6 @@
     --tool-active: #3b82f6;
 }
 
-/* NEW: Light Theme Variable Swaps */
 .light-theme {
     --bg-color: #f1f5f9;
     --card-color: #ffffff;
@@ -45,7 +43,6 @@ body {
     transition: background-color 0.3s ease;
 }
 
-/* NEW: Theme Button Layout */
 .theme-btn {
     position: absolute;
     top: 15px;
@@ -147,6 +144,19 @@ h1 {
     box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
 }
 
+/* NEW: Toggle Grid Button design */
+.toggle-grid-btn {
+    background-color: transparent;
+    border: 2px dashed var(--tool-color);
+    color: var(--text-color);
+    width: 100%;
+    padding: 8px;
+}
+
+.toggle-grid-btn:hover {
+    background-color: rgba(148, 163, 184, 0.1);
+}
+
 .button-group {
     display: flex;
     gap: 10px;
@@ -224,4 +234,9 @@ button:active {
     box-sizing: border-box;
     cursor: crosshair;
     user-select: none;
+}
+
+/* NEW: Utility state to hide individual lines inside canvas */
+.grid-canvas.hide-borders .pixel {
+    border: none;
 }
